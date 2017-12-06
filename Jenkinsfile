@@ -11,26 +11,11 @@ properties([
     ])
 ])
 
-pipeline {
-    agent any 
-
-    stages {
-        stage('Build') { 
-            steps { 
-                sh 'pwd' 
-            }
-        }
-        stage('Test'){
-            steps {
-                sh 'java -version'
-                
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'ls'
-                sh 'pwd'
-            }
-        }
-    }
-}
+node {
+  stage 'build'
+  echo 'hello world'
+  stage 'test'
+  echo 'hello veridic'
+  stage 'Deploy'
+  echo 'hello Georgia'
+ }
