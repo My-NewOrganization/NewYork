@@ -1,8 +1,36 @@
-node {
-  stage 'build'
-  echo 'hello world'
-  stage 'test'
-  echo 'hello veridic'
-  stage 'Deploy'
-  echo 'hello Georgia'
- }
+#!/usr/bin/env groovy
+properties([
+    [$class: 'GithubProjectProperty',
+    displayName: 'Shivakumar',
+    projectUrlStr: 'https://github.com/My-NewOrganization/NewYork.git'],
+    pipelineTriggers([
+      upstream(
+      threshold: 'SUCCESS',
+      upstreamProjects: '../jobA/master'
+      )
+    ])
+])
+
+pipeline {
+    agent any 
+
+    stages {
+        stage('Build') { 
+            steps { 
+                sh 'pwd' 
+            }
+        }
+        stage('Test'){
+            steps {
+                sh 'java -version'
+                
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'ls'
+                sh 'pwd'
+            }
+        }
+    }
+}
