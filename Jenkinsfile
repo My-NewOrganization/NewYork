@@ -7,6 +7,7 @@ properties([
       upstream(
       threshold: 'SUCCESS',
       upstreamProjects: 'https://github.com/My-NewOrganization/Massachusetts.git'
+      upstreamProjects: 'https://github.com/My-NewOrganization/NewHampshire.git'
       )
     ])
 ])
